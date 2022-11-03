@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Test with cucumber
-        run: npm run test:cucumber
+        run: npm run test:cucumber:report
 
       - name: Archive cucumber report
         uses: actions/upload-artifact@v3
