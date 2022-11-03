@@ -9,7 +9,7 @@ const pretty = "-f node_modules/cucumber-pretty";
 const now = "--tags @now";
 const notIntegrationTest = '--tags "not @integrationTest"';
 const usage = "--dry-run --format usage";
-const report = "--format html:cucumber-report.html";
+const report = "--format html:cucumber-report/cucumber-report.html";
 const coverage =
   "--format 'json:coverage/cucumber_report.json' features/**/*.feature";
 const rR = "features/**/+(r|R)*.feature";

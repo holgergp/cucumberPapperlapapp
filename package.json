@@ -29,7 +29,7 @@
     "gherkin": "node_modules/.bin/gherkin-lint",
     "prettierAll": "./node_modules/.bin/prettier --write \"+(src|features)/**/*.{js,jsx,ts,tsx,json,scss,md}\"",
     "test:cucumber": "cross-env NODE_ENV=test BABEL_ENV=test IS_CUCUMBER_TEST=true node_modules/.bin/cucumber-js",
-    "test:cucumber:report": "npm run test:cucumber -- -p report",
+    "test:cucumber:report": "mkdir -p cucumber-report && npm run test:cucumber -- -p report",
     "test:cucumber:debug": "cross-env DEBUG=true npm run test:cucumber",
     "test:cucumber:trace": "npm run test:cucumber -- -p trace",
     "test:cucumber:now": "npm run test:cucumber -- -p now",
