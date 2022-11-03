@@ -31,6 +31,7 @@ jobs:
         run: npm run test:cucumber:report
 
       - name: Update cucumber report 🚀
+        if: always()
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
