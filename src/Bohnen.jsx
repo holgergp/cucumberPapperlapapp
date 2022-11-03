@@ -9,8 +9,8 @@ export const Bohnen = () => {
 
   return (
     <div className="tableContainer">
-      <table>
-        <thead>
+      <table className="border-separate border-spacing-2">
+        <thead className="text-1xl text-gray-700 font-bold mb-5">
           <tr>
             <th>Bohnenart</th>
             <th>Preis beim Händler in Euro</th>
@@ -28,6 +28,7 @@ export const Bohnen = () => {
                   <input
                     type="text"
                     id="art"
+                    className="border-2 border-slate-400"
                     onChange={(event) =>
                       updateData({ ...bohne, art: event.target.value })
                     }
@@ -38,6 +39,7 @@ export const Bohnen = () => {
                   <input
                     type="number"
                     id="ekp"
+                    className="border-2 border-slate-400"
                     onChange={(event) =>
                       updateData({ ...bohne, ekp: event.target.value })
                     }
@@ -48,6 +50,7 @@ export const Bohnen = () => {
                   <input
                     type="number"
                     id="marge"
+                    className="border-2 border-slate-400 disabled:bg-slate-200"
                     disabled={true}
                     onChange={(event) =>
                       updateData({ ...bohne, marge: event.target.value })
@@ -59,6 +62,7 @@ export const Bohnen = () => {
                   <input
                     type="number"
                     id="rabatt"
+                    className="border-2 border-slate-400"
                     onChange={(event) =>
                       updateData({ ...bohne, rabatt: event.target.value })
                     }
@@ -69,6 +73,7 @@ export const Bohnen = () => {
                   <input
                     type="number"
                     id="vkp"
+                    className="border-2 border-slate-400"
                     onChange={(event) =>
                       updateData({ ...bohne, vkp: event.target.value })
                     }
@@ -80,6 +85,7 @@ export const Bohnen = () => {
                     type="number"
                     id="vkpRabatt"
                     disabled={true}
+                    className="border-2 border-slate-400 disabled:bg-slate-200"
                     onChange={(event) =>
                       updateData({ ...bohne, vkpRabatt: event.target.value })
                     }
