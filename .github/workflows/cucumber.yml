@@ -1,0 +1,34 @@
+name: Run Cucumber Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup project
+        run: npm ci
+
+      - name: Test with cucumber
+        run: npm run test:cucumber
+        with:
+          name: cucumber-report
+          path: cucumber-report.html

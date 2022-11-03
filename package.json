@@ -1,0 +1,67 @@
+{
+  "name": "cucumber-papperlapapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/register": "^7.18.9",
+    "@cucumber/cucumber": "^8.7.0",
+    "@testing-library/react": "^13.4.0",
+    "babel-plugin-transform-require-ignore": "^0.1.1",
+    "cucumber-html-reporter": "^5.5.0",
+    "cucumber-pretty": "^6.0.1",
+    "gherkin-lint": "^4.2.2",
+    "nyc": "^15.1.0",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.4",
+    "react-scripts": "5.0.1",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "gherkin": "node_modules/.bin/gherkin-lint",
+    "prettierAll": "./node_modules/.bin/prettier --write \"+(src|features)/**/*.{js,jsx,ts,tsx,json,scss,md}\"",
+    "test:cucumber": "cross-env NODE_ENV=test BABEL_ENV=test IS_CUCUMBER_TEST=true node_modules/.bin/cucumber-js",
+    "test:cucumber:report": "npm run test:cucumber -- -p report",
+    "test:cucumber:debug": "cross-env DEBUG=true npm run test:cucumber",
+    "test:cucumber:trace": "npm run test:cucumber -- -p trace",
+    "test:cucumber:now": "npm run test:cucumber -- -p now",
+    "test:cucumber:now:trace": "npm run test:cucumber -- -p traceNow",
+    "test:cucumber:now:actionOutline": "cross-env ACTION_OUTLINE=true npm run test:cucumber:now",
+    "test:cucumber:usage": "cross-env NODE_ENV=test BABEL_ENV=test npm run test:cucumber -- -p usage",
+    "test:coverage": "npm run test:coverage:clean && npm run test:coverage:cucumber && npm run test:coverage:collect && npm run test:coverage:cucumber:report",
+    "test:coverage:clean": "rm -rf .nyc_output coverage/*",
+    "test:coverage:cucumber": "mkdir -p coverage && cross-env NODE_ENV=test IS_CUCUMBER_TEST=true nyc --silent node_modules/.bin/cucumber-js -p coverage && npm run test:coverage:cucumber:report",
+    "test:coverage:cucumber:report": "node cucumber_report.js",
+    "test:cucumber:rR": "npm run test:cucumber -- -p rR"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/user-event": "^13.5.0",
+    "cross-env": "^7.0.3"
+  }
+}
