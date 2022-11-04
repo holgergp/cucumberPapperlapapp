@@ -18,11 +18,10 @@ describe("Die Anwendung", () => {
     ],
   });
   it("Soll folgende Bohnendaten zeigen", () => {
-    render(<App store={store} />);
-    expect(document.querySelector("#art").value).toEqual("Äthiopien");
-    expect(document.querySelector("#ekp").value).toEqual("10");
-    expect(document.querySelector("#vkp").value).toEqual("12");
-    expect(document.querySelector("#marge").value).toEqual("20");
+    const { queryByTestId } = render(<App store={store} />);
+    expect(queryByTestId("art").value).toEqual("Äthiopien");
+    expect(queryByTestId("ekp").value).toEqual("10");
+    expect(queryByTestId("vkp").value).toEqual("12");
+    expect(queryByTestId("marge").value).toEqual("20");
   });
 });
-

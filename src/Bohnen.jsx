@@ -25,33 +25,33 @@ export const Bohnen = () => {
                 <td>
                   <input
                     type="text"
-                    id="art"
+                    data-testid="art"
                     className="border-2 border-slate-400"
                     onChange={(event) =>
                       dispatch(
                         updateData({ ...bohne, art: event.target.value })
                       )
                     }
-                    value={bohne.art}
+                    value={bohne.art || ""}
                   />
                 </td>
                 <td>
                   <input
                     type="number"
-                    id="ekp"
+                    data-testid="ekp"
                     className="border-2 border-slate-400"
                     onChange={(event) =>
                       dispatch(
                         updateData({ ...bohne, ekp: event.target.value })
                       )
                     }
-                    value={bohne.ekp}
+                    value={bohne.ekp || ""}
                   />
                 </td>
                 <td>
                   <input
                     type="number"
-                    id="marge"
+                    data-testid="marge"
                     className="border-2 border-slate-400 disabled:bg-slate-200"
                     disabled={true}
                     onChange={(event) =>
@@ -59,39 +59,41 @@ export const Bohnen = () => {
                         updateData({ ...bohne, marge: event.target.value })
                       )
                     }
-                    value={bohne.marge}
+                    value={bohne.marge || ""}
                   />
                 </td>
                 <td>
                   <input
                     type="number"
-                    id="rabatt"
+                    data-testid="rabatt"
                     className="border-2 border-slate-400"
                     onChange={(event) =>
                       dispatch(
                         updateData({ ...bohne, rabatt: event.target.value })
                       )
                     }
-                    value={bohne.rabatt}
+                    value={bohne.rabatt || "0.0"}
                   />
                 </td>
                 <td>
                   <input
                     type="number"
                     id="vkp"
+                    data-testid="vkp"
                     className="border-2 border-slate-400"
                     onChange={(event) =>
                       dispatch(
                         updateData({ ...bohne, vkp: event.target.value })
                       )
                     }
-                    value={bohne.vkp}
+                    value={bohne.vkp || "0.0"}
                   />
                 </td>
                 <td>
                   <input
                     type="number"
                     id="vkpRabatt"
+                    data-testid="vkpRabatt"
                     disabled={true}
                     className="border-2 border-slate-400 disabled:bg-slate-200"
                     onChange={(event) =>
@@ -99,7 +101,7 @@ export const Bohnen = () => {
                         updateData({ ...bohne, vkpRabatt: event.target.value })
                       )
                     }
-                    value={bohne.vkpRabatt}
+                    value={bohne.vkpRabatt || "0.0"}
                   />
                 </td>
               </tr>

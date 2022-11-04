@@ -1,6 +1,6 @@
-import { getInputValue } from "./puppetMaster";
+import { getInputValueOf } from "./puppetMaster";
 import expect from "expect";
 
-export function expectInputToEqual(selectorOrElement, expectation) {
-  expect(getInputValue(selectorOrElement)).toEqual(expectation);
+export function expectInputToEqual(testId, expectation, world) {
+  expect(getInputValueOf(testId, world)).toEqual(expectation);
 }

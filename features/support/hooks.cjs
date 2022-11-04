@@ -18,4 +18,7 @@ function _unmountUI(world) {
   if (world.root) {
     world.root = undefined;
   }
+  if (world.user) {
+    world.user = undefined;
+  }
 }
