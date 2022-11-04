@@ -1,12 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateDataAction } from "./reducer";
+import { updateData } from "./reducer";
 
 export const Bohnen = () => {
   const dispatch = useDispatch();
-  const updateData = (bohne) => dispatch(updateDataAction(bohne));
   const bohnen = useSelector((state) => state.bohnen);
-
   return (
     <div className="tableContainer">
       <table className="border-separate border-spacing-2">
@@ -30,7 +28,9 @@ export const Bohnen = () => {
                     id="art"
                     className="border-2 border-slate-400"
                     onChange={(event) =>
-                      updateData({ ...bohne, art: event.target.value })
+                      dispatch(
+                        updateData({ ...bohne, art: event.target.value })
+                      )
                     }
                     value={bohne.art}
                   />
@@ -41,7 +41,9 @@ export const Bohnen = () => {
                     id="ekp"
                     className="border-2 border-slate-400"
                     onChange={(event) =>
-                      updateData({ ...bohne, ekp: event.target.value })
+                      dispatch(
+                        updateData({ ...bohne, ekp: event.target.value })
+                      )
                     }
                     value={bohne.ekp}
                   />
@@ -53,7 +55,9 @@ export const Bohnen = () => {
                     className="border-2 border-slate-400 disabled:bg-slate-200"
                     disabled={true}
                     onChange={(event) =>
-                      updateData({ ...bohne, marge: event.target.value })
+                      dispatch(
+                        updateData({ ...bohne, marge: event.target.value })
+                      )
                     }
                     value={bohne.marge}
                   />
@@ -64,7 +68,9 @@ export const Bohnen = () => {
                     id="rabatt"
                     className="border-2 border-slate-400"
                     onChange={(event) =>
-                      updateData({ ...bohne, rabatt: event.target.value })
+                      dispatch(
+                        updateData({ ...bohne, rabatt: event.target.value })
+                      )
                     }
                     value={bohne.rabatt}
                   />
@@ -75,7 +81,9 @@ export const Bohnen = () => {
                     id="vkp"
                     className="border-2 border-slate-400"
                     onChange={(event) =>
-                      updateData({ ...bohne, vkp: event.target.value })
+                      dispatch(
+                        updateData({ ...bohne, vkp: event.target.value })
+                      )
                     }
                     value={bohne.vkp}
                   />
@@ -87,7 +95,9 @@ export const Bohnen = () => {
                     disabled={true}
                     className="border-2 border-slate-400 disabled:bg-slate-200"
                     onChange={(event) =>
-                      updateData({ ...bohne, vkpRabatt: event.target.value })
+                      dispatch(
+                        updateData({ ...bohne, vkpRabatt: event.target.value })
+                      )
                     }
                     value={bohne.vkpRabatt}
                   />

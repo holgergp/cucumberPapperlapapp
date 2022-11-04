@@ -1,12 +1,16 @@
 import { setWorldConstructor } from "@cucumber/cucumber";
-import { createStore } from "redux";
 
-import reducers from "../../src/reducer";
+import bohnenReducer from "../../src/reducer";
+import { configureStore } from "@reduxjs/toolkit";
 
 function BaristaWorld() {
-  this.store = createStore(reducers);
+  this.store = configureStore({
+    reducer: {
+      bohnen: bohnenReducer,
+    },
+  });
   this.wrapper = undefined;
 }
 
-process.on("unhandledRejection", r => console.error(r));
+process.on("unhandledRejection", (r) => console.error(r));
 setWorldConstructor(BaristaWorld);

@@ -1,9 +1,4 @@
-import { combineReducers } from "redux";
-
-export const updateDataAction = (bohne) => ({
-  type: "UPDATE_DATA",
-  bohne,
-});
+import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = [
   {
@@ -26,10 +21,13 @@ const INITIAL_STATE = [
   },
 ];
 
-const bohnen = (state = INITIAL_STATE, action) => {
-  const bohne = action.bohne;
-  switch (action.type) {
-    case "UPDATE_DATA":
+export const bohnenSlice = createSlice({
+  name: "bohnen",
+  initialState: INITIAL_STATE,
+  reducers: {
+    updateData: (state, action) => {
+      const bohne = action.payload;
+      console.log(bohne)
       return state.map((s) => {
         if (s.id === bohne.id) {
           const rabatt = parseFloat(bohne.rabatt || 0.0);
@@ -50,11 +48,11 @@ const bohnen = (state = INITIAL_STATE, action) => {
           return s;
         }
       });
-    default:
-      return state;
-  }
-};
-
-export default combineReducers({
-  bohnen,
+    },
+  },
 });
+
+// Action creators are generated for each case reducer function
+export const { updateData } = bohnenSlice.actions;
+
+export default bohnenSlice.reducer;

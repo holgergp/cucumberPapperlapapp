@@ -3,12 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { applyMiddleware, createStore } from "redux";
-import logger from "redux-logger";
-import rootReducer from "./reducer";
+import { createLogger } from "redux-logger";
+import bohnenReducer from "./reducer";
+import { configureStore } from "@reduxjs/toolkit";
 
-const store = createStore(rootReducer, applyMiddleware(logger));
-
+export const store = configureStore({
+  reducer: {
+    bohnen: bohnenReducer,
+  },
+  middleware: [createLogger()],
+});
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
