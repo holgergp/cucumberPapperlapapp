@@ -9,8 +9,9 @@ export const bohnenSlice = createSlice({
       return state.map((s) => {
         if (s.id === bohne.id) {
           const rabatt = parseFloat(bohne.rabatt || 0.0);
+          const absRabatt = parseFloat(bohne.absRabatt || 0.0);
           const vkp = parseFloat(bohne.vkp).toFixed(2);
-          const vkpRabatt = (vkp - vkp * (rabatt / 100)).toFixed(2);
+          const vkpRabatt = (vkp - vkp * (rabatt / 100) - absRabatt).toFixed(2);
           const ekp = parseFloat(bohne.ekp).toFixed(2);
           const marge = ((vkpRabatt / ekp - 1) * 100).toFixed(2);
           return {
@@ -21,6 +22,7 @@ export const bohnenSlice = createSlice({
             marge,
             ekp,
             rabatt,
+            absRabatt,
           };
         } else {
           return s;

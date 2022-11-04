@@ -78,6 +78,19 @@ export const Bohnen = () => {
                 <td>
                   <input
                     type="number"
+                    data-testid="absRabatt"
+                    className="border-2 border-slate-400"
+                    onChange={(event) =>
+                      dispatch(
+                        updateData({ ...bohne, absRabatt: event.target.value })
+                      )
+                    }
+                    value={bohne.absRabatt || "0.0"}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
                     id="vkp"
                     data-testid="vkp"
                     className="border-2 border-slate-400"
